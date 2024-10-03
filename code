@@ -1,0 +1,50 @@
+from tkinter import*
+import string
+import random
+def generator():
+    small_alphabets=string.ascii_lowercase
+    numbers=string.digits
+    special_characters=string.punctuation
+    all=small_alphabets+capital_alphabets+numbers+special_characters
+    password_Length=int(Length_box.get())
+    if choice.get()==1:
+        passwordFeild.insert(0,random.sample(small_alphabets,password_Length))
+    if choice.get()==2:
+        passwordFeild.insert(0, random.sample(small_alphabets+capital_alphabets, password_Length))
+    if choice.get()==3:
+        passwordFeild.insert(0, random.sample(all, password_Length))
+root=Tk()
+root.config(bg='gray20')
+choice= IntVar()
+
+Font=('times new roman',15,'bold')
+
+passwordLabel=Label(root,text='PASSWORD GENERATOR',font='ariel 18 bold',bg='black',fg='white')
+passwordLabel.grid(pady=10
+  
+Weakradiobutton=Radiobutton(root,text='weak',value='1',variable=choice,font=Font)
+Weakradiobutton.grid(pady=5)
+
+Mediumradiobutton=Radiobutton(root,text='Medium',value='2',variable=choice,font=Font)
+Mediumradiobutton.grid(pady=5)
+
+Strongradiobutton=Radiobutton(root,text='Strong',value='3',variable=choice,font=Font)
+Strongradiobutton.grid(pady=5)
+LengthLabel=Label(root,text='Password Length',font='ariel 18 bold',bg='black',fg='white')
+LengthLabel.grid()
+
+Length_box=Spinbox(root,from_=5,to_=18,width=5,font=Font)
+Length_box.grid()
+generateButton=Button(root,text='Generate',font=Font,command=generator)
+generateButton.grid(pady=5)
+LengthLabel=Label(root,text='Password Length',font='ariel 18 bold',bg='black',fg='white')
+LengthLabel.grid()
+
+passwordFeild=Entry(root,width=30,bd=2,font=Font)
+passwordFeild.grid()
+
+CopyButton=Button(root,text='Copy',font=Font)
+CopyButton.grid(pady=5)
+
+
+root.mainloop()
